@@ -1,0 +1,11 @@
+{
+  "welcome": "Bienvenido a la app",
+  "login": {
+    "title": "Iniciar sesión",
+    "subtitle": "¡Bienvenido de nuevo! Por favor inicia sesión en tu cuenta."
+  },
+  "home": {
+    "title": "Inicio",
+    "subtitle": "Bienvenido a tu panel de control"
+  }
+}

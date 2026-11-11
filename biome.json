@@ -1,0 +1,215 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.14/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "ignoreUnknown": false
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended",
+      "correctness": {
+        "noUnusedVariables": "error",
+        "noUnusedImports": "error",
+        "useExhaustiveDependencies": "error",
+        "useHookAtTopLevel": "error"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noGlobalIsNan": "off"
+      },
+      "style": {
+        "useNumberNamespace": "off"
+      },
+      "a11y": {
+        "useSemanticElements": "off",
+        "useKeyWithClickEvents": "off"
+      }
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "semicolons": "asNeeded"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["src/shared/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/entities/**"],
+                    "message": "shared/ es la capa base: no puede importar de entities/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/features/**"],
+                    "message": "shared/ es la capa base: no puede importar de features/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/widgets/**"],
+                    "message": "shared/ es la capa base: no puede importar de widgets/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/pages/**"],
+                    "message": "shared/ es la capa base: no puede importar de pages/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/app/**"],
+                    "message": "shared/ es la capa base: no puede importar de app/. Ver README.md."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/entities/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/entities/**"],
+                    "message": "entities/ no puede importar de otra entity. Si necesitas su tipo/dato, usa imports relativos dentro de tu misma entity o compón un nivel arriba (features/). Ver README.md."
+                  },
+                  {
+                    "group": ["@/features/**"],
+                    "message": "entities/ no puede importar de features/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/widgets/**"],
+                    "message": "entities/ no puede importar de widgets/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/pages/**"],
+                    "message": "entities/ no puede importar de pages/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/app/**"],
+                    "message": "entities/ no puede importar de app/: app/ es la capa superior, la que consume a todas. Ver README.md."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/features/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/features/**"],
+                    "message": "features/ no puede importar de otra feature. Si dos features necesitan hablarse, compón un nivel arriba (widget o page). Ver README.md."
+                  },
+                  {
+                    "group": ["@/widgets/**"],
+                    "message": "features/ no puede importar de widgets/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/pages/**"],
+                    "message": "features/ no puede importar de pages/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/app/**"],
+                    "message": "features/ no puede importar de app/: app/ es la capa superior, la que consume a todas. Ver README.md."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/widgets/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/widgets/**"],
+                    "message": "widgets/ no puede importar de otro widget. Si necesitan compartir algo, extráelo a features/, entities/ o shared/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/pages/**"],
+                    "message": "widgets/ no puede importar de pages/. Ver README.md."
+                  },
+                  {
+                    "group": ["@/app/**"],
+                    "message": "widgets/ no puede importar de app/: app/ es la capa superior, la que consume a todas. Ver README.md."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/pages/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["@/pages/**"],
+                    "message": "pages/ no puede importar de otra page. Solo src/routes.tsx referencia páginas directamente. Ver README.md."
+                  },
+                  {
+                    "group": ["@/app/**"],
+                    "message": "pages/ no puede importar de app/ (app/ envuelve a pages/, no al revés). Ver README.md."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+npx --no -- commitlint --edit "$1" || {
+  echo ""
+  echo "✖  Commit message inválido. Formato esperado:"
+  echo "   <type>(<scope opcional>): <description>"
+  echo ""
+  echo "   Tipos permitidos: feat, fix, chore, docs, refactor, test, perf, build, ci, revert"
+  echo ""
+  echo "   Ejemplos válidos:"
+  echo "     feat(auth): add login with google"
+  echo "     fix: correct date parsing on invoice"
+  echo "     chore(skills): add zod validation skill"
+  echo ""
+  exit 1
+}

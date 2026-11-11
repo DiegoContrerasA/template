@@ -1,0 +1,11 @@
+{
+  "welcome": "Bem-vindo ao app",
+  "login": {
+    "title": "Entrar",
+    "subtitle": "Bem-vindo de volta! Por favor, faça login na sua conta."
+  },
+  "home": {
+    "title": "Início",
+    "subtitle": "Bem-vindo ao seu painel"
+  }
+}

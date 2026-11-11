@@ -1,0 +1,11 @@
+{
+  "welcome": "Welcome to the app",
+  "login": {
+    "title": "Login",
+    "subtitle": "Welcome back! Please login to your account."
+  },
+  "home": {
+    "title": "Home",
+    "subtitle": "Welcome to your dashboard"
+  }
+}
